@@ -28,8 +28,6 @@
 #define THERMO_PIN A3 // Thermistor
 #define POT_PIN A4 // Potentiometer
 
-// Button
-#define BUTTON_1 A5 // Mute toggle button
 
 // ============================================================
 // THRESHOLDS
@@ -56,7 +54,7 @@ Serial.begin(9600);
 pinMode(SOUND_PIN, INPUT);
 pinMode(OBSTACLE_PIN, INPUT);
 pinMode(TILT_PIN, INPUT_PULLUP);
-pinMode(BUTTON_1, INPUT_PULLUP);
+
 
 // Output pins
 pinMode(BUZZER_PASSIVE, OUTPUT);
@@ -90,11 +88,6 @@ bool soundDetected = digitalRead(SOUND_PIN) == HIGH;
 bool obstacleDetected = digitalRead(OBSTACLE_PIN) == LOW;
 bool tiltDetected = digitalRead(TILT_PIN) == HIGH;
 
-// Mute button toggle
-if (digitalRead(BUTTON_1) == LOW) {
-systemMuted = !systemMuted;
-delay(300);
-}
 
 // Determine alert level
 
